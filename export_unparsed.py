@@ -1,6 +1,3 @@
-
-
-import argparse
 import json
 import os
 import platform
@@ -13,6 +10,8 @@ from pathlib import Path
 import pandas as pd
 import torch
 from torch.utils.mobile_optimizer import optimize_for_mobile
+
+#please refere to rows 498-501 to adjust parameters to your needs
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # YOLOv5 root directory
@@ -496,9 +495,9 @@ def run(data, weights, imgsz, batch_size, device, include, half, inplace, train,
     return f  # return list of exported files/dirs
 
 def main():
-    data = 'data/chirp.yaml'
-    weights = 'epoch2275_best_SGD_square_1.pt'
-    imgsz = (1101, 1101)
+    data = 'data/ch.yaml' # path to your data .yaml file
+    weights = 'e.pt' # name of your pt model, it is easier to put it in yolov5 folder
+    imgsz = (1101, 1101) #defalut is 640, 640, adjust to your needs
     batch_size = 1
     device = 'cpu'
     include = ['onnx']
